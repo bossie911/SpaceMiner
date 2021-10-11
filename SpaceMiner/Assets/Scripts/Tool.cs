@@ -22,6 +22,11 @@ public class Tool : MonoBehaviour
         {
             rotatePoint.transform.Rotate(0, 0, rotationSpeed);
             particle.Emit(1);
+            Debug.DrawRay(particle.transform.position, transform.TransformDirection(Vector3.forward));
+            if (Physics.Raycast(particle.transform.position, transform.TransformDirection(Vector3.forward)))
+            {
+
+            }
         }
     }
 }
