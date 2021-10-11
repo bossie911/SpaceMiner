@@ -23,6 +23,7 @@ public class MiningLaser : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
+            //Animation for the tool and particle emmiting
             rotatePoint.transform.Rotate(0, 0, rotationSpeed);
             particle.Emit(1);
 
@@ -35,11 +36,13 @@ public class MiningLaser : MonoBehaviour
                 {                    
                     Ore ore = hit.collider.gameObject.GetComponent<Ore>();
                     ore.health -= laserDamage;
-                    Debug.Log(ore.health);
 
                     //Destroys ore if healh is 0
                     if (ore.health <= 0)
                     {
+                        ParticleSystem system = hit.collider.gameObject.transform.Find("OreDestroyedParticle").GetComponent<ParticleSystem>();
+                        system.Play();
+                        system.transform.SetParent(null);
                         Destroy(hit.collider.gameObject);
                     }
                 }
