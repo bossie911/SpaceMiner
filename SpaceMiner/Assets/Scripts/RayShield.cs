@@ -8,8 +8,8 @@ public class RayShield : MonoBehaviour
 
     public bool playerRotate = false;
 
-    private Quaternion desiredRot;
-    private float playerRotSpeed = 0.5f;
+    //private Quaternion desiredRot;
+    //private float playerRotSpeed = 0.5f;
 
     private GameObject player;
 

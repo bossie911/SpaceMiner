@@ -10,6 +10,8 @@ public class MiningLaser : MonoBehaviour
     float rotationSpeed = 10f;
     float miningLaserRange = 10f;
 
+    public float laserDamage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,17 +26,22 @@ public class MiningLaser : MonoBehaviour
             rotatePoint.transform.Rotate(0, 0, rotationSpeed);
             particle.Emit(1);
 
-
             //Shoots a raycast and damages the mineral hit
             //TODO: make it use a layermask for better performance
             RaycastHit hit;
             if (Physics.Raycast(particle.transform.position, transform.TransformDirection(Vector3.forward), out hit, miningLaserRange))
             {
-                if (hit.collider.gameObject.tag == "Mineral")
-                {
-                    Debug.Log(hit.collider.gameObject.tag);
+                if (hit.collider.gameObject.tag == "Ore")
+                {                    
+                    Ore ore = hit.collider.gameObject.GetComponent<Ore>();
+                    ore.health -= laserDamage;
+                    Debug.Log(ore.health);
 
-
+                    //Destroys ore if healh is 0
+                    if (ore.health <= 0)
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
                 }
             }
         }

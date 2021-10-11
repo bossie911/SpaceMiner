@@ -45,9 +45,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8799346624614674592}
   - component: {fileID: 4035297620683000697}
+  - component: {fileID: 5127140584244864533}
   m_Layer: 0
   m_Name: Ore
-  m_TagString: Mineral
+  m_TagString: Ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +82,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2231472
   m_Center: {x: -7.496291, y: 0.33604932, z: 3.1480565}
+--- !u!114 &5127140584244864533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9076444290955237152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee961cf73eb9f4141ba7459735ba0359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &915362583121165325
 PrefabInstance:
   m_ObjectHideFlags: 0
