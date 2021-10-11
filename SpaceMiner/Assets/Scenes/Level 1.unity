@@ -356,9 +356,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenMineralAstroid
       objectReference: {fileID: 0}
-    - target: {fileID: 3421402630041806067, guid: e2e1ea9ebff183244811aa20a6d13f34,
+    - target: {fileID: 2996792810708050365, guid: e2e1ea9ebff183244811aa20a6d13f34,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

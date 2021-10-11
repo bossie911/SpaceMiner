@@ -8,7 +8,6 @@ public class RayShield : MonoBehaviour
 
     public bool playerRotate = false;
 
-    private Quaternion initialRot;
     private Quaternion desiredRot;
     private float playerRotSpeed = 0.5f;
 
@@ -23,11 +22,15 @@ public class RayShield : MonoBehaviour
 
     void Update()
     {
+
+        //Use this for later on making rotation smoother
+        /*
         if(playerRotate == true)
         {
             desiredRot = Quaternion.Euler(new Vector3(player.transform.eulerAngles.x, player.transform.eulerAngles.y, 0));
             player.transform.rotation = Quaternion.Lerp(player.transform.localRotation, desiredRot, Time.deltaTime);               
         }
+        */
     }
 
     void OnTriggerEnter(Collider other)
@@ -44,6 +47,7 @@ public class RayShield : MonoBehaviour
                 other.transform.SetParent(GameObject.FindGameObjectWithTag("Ship").transform, false);
                 other.transform.localRotation = Quaternion.Euler(0, other.transform.rotation.y - 180, 0);
 
+                //TODO make rotation smooth
                 //Sets bool on true which starts the player rot lerp
                 //playerRotate = true;
             }
@@ -53,9 +57,8 @@ public class RayShield : MonoBehaviour
 
                 playerRotate = false;
 
+                //TODO make rotation smooth
                 //Resets the camAngles
-                //Should be a lerp
-                //cam.transform.eulerAngles = new Vector3(0, 0, 0);
                 Quaternion targetRot = Quaternion.identity;
                 targetRot = Quaternion.Euler(0, 0, 0);
                 cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, targetRot, 1f * Time.deltaTime);

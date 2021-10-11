@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     float speed = 12f;
     float gravity = 0.1f;
-    float jumpHeight = 1f;
     float rotSpeed = 0.6f;
     float jetpackSpeed = 10f;
 
