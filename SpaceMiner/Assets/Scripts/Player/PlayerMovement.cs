@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     float speed = 12f;
     float gravity = 0.1f;
-    float rotSpeed = 0.6f;
-    float jetpackSpeed = 10f;
+    float rotSpeed = 0.2f;
+    float jetpackSpeed = 12f;
 
     public Vector3 velocity;
 
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
+
     public bool isInSpace;
 
     void Update()
@@ -57,59 +58,5 @@ public class PlayerMovement : MonoBehaviour
                 controller.Move(-jetUp * jetpackSpeed * Time.deltaTime);
             }
         }
-
-
-        /*
-        //Space Movement up and down
-        if (isInSpace)
-        {
-            //Input
-            if (Input.GetButton("Jump"))
-            {
-                velocity.y = speed;
-            }
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                velocity.y = -speed;
-            }
-
-                //Jump
-        if (Input.GetButtonDown("Jump"))
-        {
-            if(isGrounded && !isInSpace)
-            {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            }
-        }
-
-            //Drag
-            if(velocity.y > 0)
-            {
-                velocity.y--;
-            }
-            else if (velocity.y < 0)
-            {
-                velocity.y++;
-            }
-        }
-
-        //Velocity applying
-        controller.Move(velocity * Time.deltaTime);
-
-        //Gravity applying
-        if (isInSpace == false)
-        {
-            //velocity.y += gravity * Time.deltaTime;           
-        }
-
-        //Gravity Reset
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && velocity.y < 0 && isInSpace == false)
-        {
-            velocity.y = -2f;
-        }
-
-    */
-
     }
 }
