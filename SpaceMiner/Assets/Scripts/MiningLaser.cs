@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class MiningLaser : MonoBehaviour
     float laserDamage = 0.1f;
 
     public Slider slider;
-    public Text sliderHP;
+    public TextMeshProUGUI sliderHP;
 
     // Start is called before the first frame update
     void Start()
