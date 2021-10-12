@@ -15,6 +15,7 @@ public class MiningLaser : MonoBehaviour
 
     public Slider slider;
     public TextMeshProUGUI sliderHP;
+    public TextMeshProUGUI target;
 
     // Start is called before the first frame update
     void Start()
@@ -62,14 +63,22 @@ public class MiningLaser : MonoBehaviour
         RaycastHit hitOre;
         if (Physics.Raycast(particle.transform.position, transform.TransformDirection(Vector3.forward), out hitOre, miningLaserRange) && hitOre.collider.gameObject.tag == "Ore")
         {
-            slider.gameObject.SetActive(true);           
+            //Set UI elements on
+            slider.gameObject.SetActive(true);
+            target.gameObject.SetActive(true);
+            
+            //Changing the UI elements
             Ore ore = hitOre.collider.gameObject.GetComponent<Ore>();
             slider.value = ore.health;
             sliderHP.text = Mathf.Round(ore.health) + "%";
+
+            target.text = "Green Mineral";
         }
         else
         {
+            //Turning UI elements off
             slider.gameObject.SetActive(false);
+            target.gameObject.SetActive(false);
         }
     }
 }
